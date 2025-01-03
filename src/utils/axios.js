@@ -6,6 +6,7 @@ const instance = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true,
 });
 
 // Add a request interceptor
@@ -22,12 +23,10 @@ instance.interceptors.request.use(
   }
 );
 
-// Add a response interceptor to handle token expiration
 instance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Handle token expiration - redirect to login
       localStorage.removeItem("token");
       window.location.href = "/login";
     }
