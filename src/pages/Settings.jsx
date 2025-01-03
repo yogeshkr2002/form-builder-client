@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import "./Settings.css";
 
@@ -91,7 +91,7 @@ const Settings = () => {
 
   return (
     <div className="settings-container">
-      <h2>Account Settings</h2>
+      <h2>Settings</h2>
 
       {error && <div className="error-message">{error}</div>}
       {success && <div className="success-message">{success}</div>}
@@ -133,7 +133,9 @@ const Settings = () => {
               onClick={() => setShowOldPassword(!showOldPassword)}
               className="password-toggle"
               tabIndex="-1"
-            ></button>
+            >
+              {showOldPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
           </div>
         </div>
 
@@ -151,17 +153,22 @@ const Settings = () => {
               onClick={() => setShowNewPassword(!showNewPassword)}
               className="password-toggle"
               tabIndex="-1"
-            ></button>
+            >
+              {showOldPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
           </div>
         </div>
 
         <button type="submit" disabled={loading}>
-          {loading ? "Saving Changes..." : "Save Changes"}
+          {loading ? "Saving Changes..." : "Update"}
         </button>
       </form>
 
       <button onClick={handleLogout} className="logout-button">
-        Logout
+        <span>
+          <FaSignOutAlt />
+          Logout
+        </span>
       </button>
     </div>
   );

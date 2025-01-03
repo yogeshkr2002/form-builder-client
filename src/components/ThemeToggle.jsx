@@ -1,18 +1,21 @@
 import { useTheme } from "../contexts/ThemeContext";
-import { FaSun, FaMoon } from "react-icons/fa";
 import "./ThemeToggle.css";
 
 const ThemeToggle = () => {
   const { darkMode, toggleDarkMode } = useTheme();
 
   return (
-    <button onClick={toggleDarkMode} className="theme-toggle">
-      {darkMode ? (
-        <FaSun className="theme-icon" />
-      ) : (
-        <FaMoon className="theme-icon" />
-      )}
-    </button>
+    <div className="theme-toggle-container">
+      <span className={`theme-label light ${darkMode ? "" : "active"}`}>
+        Light
+      </span>
+      <div className="theme-toggle" onClick={toggleDarkMode}>
+        <div className={`toggle-circle ${darkMode ? "dark" : "light"}`}></div>
+      </div>
+      <span className={`theme-label dark ${darkMode ? "active" : ""}`}>
+        Dark
+      </span>
+    </div>
   );
 };
 

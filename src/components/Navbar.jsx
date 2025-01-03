@@ -14,17 +14,17 @@ const Navbar = () => {
       <div className="navbar-container">
         <div className="navbar-content">
           <div className="navbar-left">
-            <h1 className="navbar-brand">Form Builder</h1>
+            <WorkspaceSelector />
           </div>
           <div className="navbar-right">
-            <WorkspaceSelector />
+            <ThemeToggle />
+
             <button
               onClick={() => setIsShareModalOpen(true)}
               className="share-button"
             >
               Share
             </button>
-            <ThemeToggle />
           </div>
         </div>
       </div>

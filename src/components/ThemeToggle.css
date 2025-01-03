@@ -1,28 +1,57 @@
-.theme-toggle {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  color: #6b7280;
-  transition: all 0.2s;
+/* ThemeToggle.css */
+
+/* Container for toggle and labels */
+.theme-toggle-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 10px; /* Space between labels and toggle */
 }
 
-.theme-toggle:hover {
-  background-color: #f3f4f6;
-  color: #374151;
+/* Labels for Light and Dark */
+.theme-label {
+  font-size: 14px;
+  color: #999; /* Default light gray for inactive state */
+  transition: color 0.3s ease;
 }
 
-.dark .theme-toggle {
-  color: #9ca3af;
+.theme-label.active {
+  color: #000; /* Black for active label in light mode */
 }
 
-.dark .theme-toggle:hover {
-  background-color: #374151;
-  color: #e5e7eb;
+.theme-label.dark.active {
+  color: #007bff; /* Blue for active label in dark mode */
 }
 
-.theme-icon {
-  width: 1.25rem;
-  height: 1.25rem;
+/* Container for the toggle switch */
+.theme-toggle {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  background-color: #ccc; /* Light gray for light mode */
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Background for dark mode */
+.theme-toggle.dark {
+  background-color: #007bff; /* Blue for dark mode */
+}
+
+/* The sliding circle */
+.toggle-circle {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background-color: #fff; /* White circle */
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Circle's position when dark mode is active */
+.toggle-circle.dark {
+  transform: translateX(26px); /* Moves the circle to the right */
 }

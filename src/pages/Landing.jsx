@@ -1,79 +1,35 @@
 import { useNavigate } from "react-router-dom";
-import { FaRobot, FaChartBar, FaShare } from "react-icons/fa";
-import { BsLightningCharge } from "react-icons/bs";
-import ThemeToggle from "../components/ThemeToggle";
 import "./Landing.css";
+import Footer from "../components/Footer";
 
 const Landing = () => {
   const navigate = useNavigate();
 
   return (
     <div className="landing-container">
-      <header className="landing-header">
-        <div className="header-content">
-          <div className="logo">FormBuilder</div>
-          <div className="header-actions">
-            <ThemeToggle />
-            <button
-              onClick={() => navigate("/login")}
-              className="signup-button"
-            >
-              Log in
-            </button>
-            <button
-              onClick={() => navigate("/login")}
-              className="signup-button"
-            >
-              create typebot
-            </button>
-          </div>
+      <nav className="header">
+        <div className="logo">
+          <img src="/images/logo.png" alt="FormBot Logo" className="logo-img" />
         </div>
-      </header>
-
-      <section className="hero-section">
-        <h1 className="hero-title">Create Interactive Forms with Ease</h1>
-        <p className="hero-subtitle">
-          Build engaging conversational forms that boost response rates. No
-          coding required - just drag, drop, and customize.
-        </p>
-      </section>
-
-      <section className="features-section">
-        <div className="features-grid">
-          <div className="feature-card">
-            <div className="feature-icon">
-              <FaRobot />
-            </div>
-            <h3 className="feature-title">Conversational Interface</h3>
-            <p className="feature-description">
-              Create natural, flowing conversations that keep users engaged and
-              improve completion rates.
-            </p>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">
-              <BsLightningCharge />
-            </div>
-            <h3 className="feature-title">Easy to Use</h3>
-            <p className="feature-description">
-              Intuitive drag-and-drop interface makes form creation quick and
-              simple. No technical skills needed.
-            </p>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">
-              <FaChartBar />
-            </div>
-            <h3 className="feature-title">Analytics & Insights</h3>
-            <p className="feature-description">
-              Track form performance, completion rates, and user behavior with
-              detailed analytics.
-            </p>
-          </div>
+        <div className="buttons">
+          <button
+            className="btn btn-outline"
+            onClick={() => navigate("/login")}
+          >
+            Sign in
+          </button>
+          <button
+            className="btnFormbot btn-primary"
+            onClick={() => navigate("/login")}
+          >
+            Create a FormBot
+          </button>
         </div>
-      </section>
+      </nav>
+      <div className="bodyContainer">
+        <img src="/images/body.png" alt="FormBot Logo" />
+      </div>
+      <Footer />
     </div>
   );
 };

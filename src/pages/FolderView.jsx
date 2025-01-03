@@ -9,7 +9,6 @@ import {
   FaTimes,
   FaArrowLeft,
 } from "react-icons/fa";
-import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import { showSuccessToast, showErrorToast } from "../components/CustomToast";
 import baseurl from "../utils/config";
@@ -119,8 +118,6 @@ const FolderView = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <Navbar />
-
       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           <div className="bg-white shadow rounded-lg p-6">
@@ -132,7 +129,7 @@ const FolderView = () => {
               >
                 <FaArrowLeft className="text-gray-600 text-xl hover:text-gray-800" />
               </button>
-              <h2 className="text-2xl font-bold">{folder?.name}</h2>
+              <h2 className="text-2xl font-bold text-black">{folder?.name}</h2>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
